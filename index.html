@@ -110,18 +110,23 @@ initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
         <h2>Both pickers</h2>
         <div>
           <h4 class="md-subhead">Standard pickers + error messages</h4>
-          <div layout="row">
-            <mdp-date-picker name="dateAndTimeDate" mdp-placeholder="Date" ng-model="dateAndTime" required>
-              <div ng-messages="demoForm.dateAndTimeDate.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </mdp-date-picker>
-            <mdp-time-picker name="dateAndTimeTime" mdp-placeholder="Time" mdp-auto-switch="true" ng-model="dateAndTime" required>
-              <div ng-messages="demoForm.dateAndTimeTime.$error">
-                <div ng-message="required">This is required.</div>
-              </div>
-            </mdp-time-picker>
-          </div>
+          <form name="bothPickersForm" novalidate>
+            <div layout="row">
+              <mdp-date-picker name="dateAndTimeDate" mdp-placeholder="Date" ng-model="dateAndTime" required>
+                <div ng-messages="demoForm.dateAndTimeDate.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </mdp-date-picker>
+              <mdp-time-picker name="dateAndTimeTime" mdp-placeholder="Time" mdp-auto-switch="true" ng-model="dateAndTime" required>
+                <div ng-messages="demoForm.dateAndTimeTime.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </mdp-time-picker>
+            </div>
+            <div layout="row">
+              <md-button ng-disabled="bothPickersForm.$invalid" ng-click="onSave()" aria-label="Save">Save</md-button>
+            </div>
+          </form>
         </div>
   </md-content>
 </md-content>
